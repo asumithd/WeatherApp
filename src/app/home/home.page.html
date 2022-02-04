@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Sumithdeepan A
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>Wether</ion-card-title>
+            <ion-item lines="none">
+                <p>Today's Wheathar Report</p>
+                <ion-label slot="end"> {{todayDate | date:'EEE dd YYYY'}} </ion-label>
+            </ion-item>
+        </ion-card-header>
+    </ion-card>
+    <ion-card>
+        <ion-card-content>
+            <ion-card-subtitle>
+                <ion-item>
+                    {{(weatherData?.temp - 273.15).toFixed(0)}}
+                    <sup>o</sup>
+                    <img [src]="weatherIcon" alt="weatherIcon" slot="end">
+                </ion-item>
+
+                <ion-item>
+                    <ion-icon name="location"></ion-icon>{{cityName}}
+                </ion-item>
+            </ion-card-subtitle>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-item>
+            <ion-label>Maximum Temp</ion-label>
+            <span>{{(weatherData?.temp_max - 273.15).toFixed(0)}}
+              <sup>o</sup></span>
+        </ion-item>
+        <ion-item>
+            <ion-label>Minimum Temp</ion-label>
+            <span>{{(weatherData?.temp_min - 273.15).toFixed(0)}}
+              <sup>o</sup></span>
+        </ion-item>
+        <ion-item>
+            <ion-label>Humidity</ion-label>
+            <span>{{(weatherData?.humidity).toFixed(0)}}
+              %</span>
+        </ion-item>
+    </ion-card>
+
+</ion-content>
